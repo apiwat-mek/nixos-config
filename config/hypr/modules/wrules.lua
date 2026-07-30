@@ -37,7 +37,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  match = { class = "firefox" },
+  match = { class = "helium" },
   workspace = 2,
 })
 

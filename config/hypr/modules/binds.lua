@@ -1,7 +1,7 @@
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -show drun"
-local browser     = "firefox"
+local browser     = "helium"
 
 local main_mod    = "SUPER" -- Sets "Windows" key as main modifier
 
