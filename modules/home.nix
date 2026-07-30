@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   ditfilesDir = "/home/mek/nixos-dotfile/";

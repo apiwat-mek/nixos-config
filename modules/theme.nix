@@ -9,13 +9,28 @@
 
   gtk = {
     enable = true;
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+    theme = {
+      name = "catppuccin-mocha-pink-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        variant = "mocha";
+      };
+    };
+    font = {
+      name = "Iosevka Nerd Font Propo Medium";
+      size = 11;
+    };
+    colorScheme = "dark";
   };
+    xdg.configFile = {
+      "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+    };
 
   qt = {
     enable = true;
-    platformTheme.name = "kvantum";
+    platformTheme.name = "qtct";
     style.name = "kvantum";
   };
 
