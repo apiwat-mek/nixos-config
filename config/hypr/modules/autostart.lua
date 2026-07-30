@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+  hl.exec_cmd("waybar")
+  hl.exec_cmd("swaync")
+  hl.exec_cmd("swaybg -i /home/mek/nixos-dotfile/config/wallpaper/van-chilling.png")
+  hl.exec_cmd("systemctl --user restart xdg-desktop-portal-hyprland")
+end)
