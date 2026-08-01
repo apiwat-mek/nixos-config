@@ -10,7 +10,17 @@
     pulse.enable = true;
   };
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "dur_file";
+      dur_file_path = "/etc/ly/blackhole-smooth-240x67.dur";
+      full_color = true;
+      animation_frame_delay = 75;
+      clear_password = true;
+    };
+  };
+  environment.etc."ly/blackhole-smooth-240x67.dur".source = ../config/ly/blackhole-smooth-240x67.dur;
 
   security.rtkit.enable = true;
 
