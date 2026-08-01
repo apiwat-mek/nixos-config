@@ -14,5 +14,8 @@
     wl-clipboard
     cliphist
     wl-clip-persist
+
+    grim
+    slurp
   ];
 }

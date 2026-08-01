@@ -21,6 +21,11 @@ hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"))
 hl.bind(main_mod .. " + SHIFT + V", hl.dsp.exec_cmd("rm -rf ~/.cache/cliphist/db"))
 
+hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind("CTRL + SHIFT + 1", hl.dsp.exec_cmd("grim - | wl-copy"))
+hl.bind("CTRL + SHIFT + 2", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+
 -- Move focus with main_mod + arrow keys
 hl.bind(main_mod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(main_mod .. " + l", hl.dsp.focus({ direction = "right" }))
