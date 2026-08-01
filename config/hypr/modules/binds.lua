@@ -18,7 +18,12 @@ hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind("CTRL + Escape", hl.dsp.exec_cmd("~/nixos-dotfile/config/waybar/launch.sh"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))
 
-hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"))
+hl.bind(
+	main_mod .. " + V",
+	hl.dsp.exec_cmd(
+		"cliphist list | rofi -dmenu -p 'Clipboard' -kb-remove-to-eol '' -kb-row-up 'Up,Alt+k' -kb-row-down 'Down,Alt+j' | cliphist decode | wl-copy"
+	)
+)
 hl.bind(main_mod .. " + SHIFT + V", hl.dsp.exec_cmd("rm -rf ~/.cache/cliphist/db"))
 
 hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
