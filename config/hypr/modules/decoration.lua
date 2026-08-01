@@ -1,37 +1,37 @@
 hl.config({
-  general = {
-    gaps_in          = 1,
-    gaps_out         = 2,
-    border_size      = 1,
+	general = {
+		gaps_in = 1,
+		gaps_out = 2,
+		border_size = 1,
 
-    col              = {
-      active_border   = "#ebbcba",
-      inactive_border = "#6e6a86",
-    },
+		col = {
+			active_border = "#ebbcba",
+			inactive_border = "#6e6a86",
+		},
 
-    resize_on_border = false,
-    allow_tearing    = false,
-    layout           = "master",
-  },
+		resize_on_border = false,
+		allow_tearing = false,
+		layout = "master",
+	},
 
-  cursor = { enable_hyprcursor = false, no_hardware_cursors = true, },
+	cursor = { enable_hyprcursor = false, no_hardware_cursors = true },
 
-  decoration = {
-    rounding         = 0,
-    rounding_power   = 0,
+	decoration = {
+		rounding = 0,
+		rounding_power = 0,
 
-    -- Change transparency of focused and unfocused windows
-    active_opacity   = 1.0,
-    inactive_opacity = 1.0,
+		-- Change transparency of focused and unfocused windows
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
 
-    blur             = {
-      enabled = false,
-    },
-  },
+		blur = {
+			enabled = false,
+		},
+	},
 
-  animations = {
-    enabled = true,
-  },
+	animations = {
+		enabled = true,
+	},
 })
 
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })

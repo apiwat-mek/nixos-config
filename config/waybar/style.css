@@ -18,37 +18,36 @@
 @define-color highlightHigh   #524f67;
 
 * {
-    font-family: "JetBrainsMono Nerd Font", "Noto Sans Thai", sans-serif;
-    font-size: 12px;
-    font-weight: bold;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans Thai", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 window#waybar {
-    background-color: @surface;
-    color: @iris;
+  background-color: @surface;
+  color: @iris;
 }
 
 #workspaces button {
-    padding: 0 2px;
-    color: @rose;
-    background: transparent;
+  padding: 0 2px;
+  color: @rose;
+  background: transparent;
 }
 #workspaces button.active {
-    color: @love;
-    border-radius: 0px;
-    border: 1.5px solid @subtle;
+  color: @love;
+  border-radius: 0px;
+  border: 1.5px solid @subtle;
 }
 #workspaces button.empty {
-    color: @text;
+  color: @text;
 }
 #workspaces button.empty.active {
-    color: @rose;
+  color: @rose;
 }
 
 #workspaces button.urgent {
-    background-color: @love;
+  background-color: @love;
 }
-
 
 #clock,
 #custom-sep,
@@ -60,44 +59,43 @@ window#waybar {
 #pulseaudio,
 #custom-notification,
 #tray {
-    padding: 0 8px;
-    color: @white;
+  padding: 0 8px;
+  color: @white;
 }
 
 #custom-sep {
-    color: @muted;
+  color: @muted;
 }
 
 #clock {
-    color: @rose;
+  color: @rose;
 }
 
 #pulseaudio {
-    color: @subtle;
+  color: @subtle;
 }
 
 #memory {
-    color: @pine;
+  color: @pine;
 }
 
 #cpu {
-    color: @love;
+  color: @love;
 }
 
 #network {
-    color: @foam
+  color: @foam;
 }
 
 #network.disconnected {
-    background-color: @red;
+  background-color: @red;
 }
 
 #tray {
-    background-color: #2980b9;
+  background-color: #2980b9;
 }
 
 #custom-notification {
   padding: 0 10px;
   color: @love;
 }
-

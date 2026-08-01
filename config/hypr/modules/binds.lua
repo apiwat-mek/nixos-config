@@ -1,20 +1,25 @@
-local terminal    = "kitty"
+local terminal = "kitty"
 local fileManager = "thunar"
-local menu        = "rofi -show drun"
-local browser     = "helium"
+local menu = "rofi -show drun"
+local browser = "helium"
 
-local main_mod    = "SUPER" -- Sets "Windows" key as main modifier
+local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + Q", hl.dsp.window.close())
-hl.bind(main_mod .. " + SHIFT + Q",
-  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(
+	main_mod .. " + SHIFT + Q",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(main_mod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
 hl.bind("CTRL + Escape", hl.dsp.exec_cmd("~/nixos-dotfile/config/waybar/launch.sh"))
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd(browser))
+
+hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"))
+hl.bind(main_mod .. " + SHIFT + V", hl.dsp.exec_cmd("rm -rf ~/.cache/cliphist/db"))
 
 -- Move focus with main_mod + arrow keys
 hl.bind(main_mod .. " + h", hl.dsp.focus({ direction = "left" }))
@@ -25,9 +30,9 @@ hl.bind(main_mod .. " + j", hl.dsp.focus({ direction = "down" }))
 -- Switch workspaces with main_mod + [0-9]
 -- Move active window to a workspace with main_mod + SHIFT + [0-9]
 for i = 1, 10 do
-  local key = i % 10 -- 10 maps to key 0
-  hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Scroll through existing workspaces with main_mod + scroll
@@ -39,14 +44,26 @@ hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-  { locked = true, repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true }
+)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 

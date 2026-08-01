@@ -1,104 +1,103 @@
 //-*- mode: jsonc -*-
 {
-    "layer": "top", 
-    "position": "top", 
-    "height": 26, 
-    "spacing": 2, 
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "spacing": 2,
 
-    // Choose the order of the modules
-    "modules-left": [
-        "hyprland/workspaces",
-        "custom/sep",
-        "hyprland/window",
-        "custom/sep"
-    ],
-    "modules-center": [
-    ],
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/sep",
+    "hyprland/window",
+    "custom/sep",
+  ],
+  "modules-center": [],
 
-    "modules-right": [
-        "pulseaudio",
-        "custom/sep",
-        "network",
-        "custom/sep",
-        "cpu",
-        "custom/sep",
-        "memory",
-        "custom/sep",
-        "clock",
-        "custom/notification",
-    ],
+  "modules-right": [
+    "pulseaudio",
+    "custom/sep",
+    "network",
+    "custom/sep",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "clock",
+    "custom/notification",
+  ],
 
-    // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
-        "persistent-workspaces": {
-            "*" : 5
-        },
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}",
+    "persistent-workspaces": {
+      "*": 5,
     },
-    "hyprland/window" : {
-        "max-length": 40,
-        "seperate-outputs": false
+  },
+  "hyprland/window": {
+    "max-length": 40,
+    "seperate-outputs": false,
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10,
+    // "icons": {
+    //   "blueman": "bluetooth",
+    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+  "clock": {
+    "format-alt": "{:%Y-%m-%d}",
+  },
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "tooltip": false,
+  },
+  "memory": {
+    "format": "Mem: {used}GiB",
+  },
+  "network": {
+    "format": "Online",
+    "format-disconnected": "Disconnected ⚠",
+    "on-click": "nmtui",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": [""],
     },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
-    },
-    "clock": {
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-        "format": "CPU: {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "Mem: {used}GiB"
-    },
-    "network": {
-        "format": "Online",
-        "format-disconnected": "Disconnected ⚠",
-        "on-click": "nmtui"
-    },
-    "pulseaudio": {
-	      "format": "{icon} {volume}%",
-	      "format-bluetooth": " {volume}%",
-	      "format-muted": "",
-	      "format-icons": {
-		      "headphone": "",
-		      "default": [""]
-	      },
-	      "scroll-step": 1,
-	      "on-click": "pavucontrol"
-    },
-    "custom/sep": {
-        "format" : "|",
-        "interval" : 0
-    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+  },
+  "custom/sep": {
+    "format": "|",
+    "interval": 0,
+  },
 
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "",
-            "none": "",
-            "dnd-notification": "",
-            "dnd-none": "",
-            "inhibited-notification": "",
-            "inhibited-none": "",
-            "dnd-inhibited-notification": "",
-            "dnd-inhibited-none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
-}
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
 }

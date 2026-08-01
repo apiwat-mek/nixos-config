@@ -10,5 +10,9 @@
     swaynotificationcenter
     rofi
     thunar
+
+    wl-clipboard
+    cliphist
+    wl-clip-persist
   ];
 }
