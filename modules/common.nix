@@ -1,7 +1,8 @@
-{ config, pkgs, lib, inputs, ... }:
-
 {
-
+  pkgs,
+  inputs,
+  ...
+}: {
   time.timeZone = "Asia/Bangkok";
 
   services.pipewire = {
@@ -19,7 +20,7 @@
   users.users.mek = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"];
   };
 
   programs.firefox.enable = true;
@@ -37,7 +38,7 @@
     gcc
     gnumake
     tree-sitter
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     neovim
     fastfetch
     fetch
@@ -48,6 +49,11 @@
     btop
     pavucontrol
     inputs.helium.packages.${system}.default
+
+    unzip
+    nodejs
+    python3
+    cargo
   ];
 
   fonts.packages = with pkgs; [
@@ -60,19 +66,20 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ "Iosevka Nerd Font" ];
-      sansSerif = [ "Noto Sans Thai" ];
-      serif = [ "Noto Sans Thai" ];
+      monospace = ["Iosevka Nerd Font"];
+      sansSerif = ["Noto Sans Thai"];
+      serif = ["Noto Sans Thai"];
     };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
-};
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -91,5 +98,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
 }

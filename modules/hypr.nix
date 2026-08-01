@@ -1,18 +1,14 @@
-{ config, pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   programs.hyprland = {
-	  enable = true;
-	  xwayland.enable = true;
+    enable = true;
+    xwayland.enable = true;
   };
 
-  
   environment.systemPackages = with pkgs; [
     waybar
     swaybg
     swaynotificationcenter
-    rofi 
+    rofi
     thunar
   ];
 }
